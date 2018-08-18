@@ -33,6 +33,41 @@
             {
                 if (true)
                 {
+                    //dataSet1 - can be added from toolbox
+
+                    DataSet dataSet = new DataSet("dataSet");
+                    dataSet.Namespace = "NetFrameWork";
+                    DataTable myTable = new DataTable(); //shouldn't init class within another class
+                    ////DataColumn idCol = new DataColumn("id"); //this is int
+                    ////myTable.Columns.Add(idCol);
+                    DataColumn topicCol = new DataColumn("topic");
+                    myTable.Columns.Add(topicCol);
+                    DataColumn titleCol = new DataColumn("title");
+                    myTable.Columns.Add(titleCol);
+                    //DataColumn questionCol = new DataColumn("question");
+                    //myTable.Columns.Add(questionCol);
+                    //DataColumn answerCol = new DataColumn("answer");
+                    //myTable.Columns.Add(answerCol);
+                    //DataColumn extraCol = new DataColumn("extra");
+                    //myTable.Columns.Add(extraCol);
+                    //DataColumn linksCol = new DataColumn("links");
+                    //myTable.Columns.Add(linksCol);
+                    //DataColumn keywordsCol = new DataColumn("keywords"); //this might be an array
+                    //myTable.Columns.Add(keywordsCol);
+
+
+
+
+                    dataSet.AcceptChanges();
+
+                    string json = JsonConvert.SerializeObject(dataSet, Formatting.Indented);
+
+                    File.AppendAllText(@"F:\SoftwareDevelopmentPractice\Test\jsonTest.json"
+                            , json);
+
+                
+                
+                
                     Model myModel = new Model();
                     myModel.Topic = topicTxtBox.Text;
                     myModel.Title = titleTxtBox.Text;
